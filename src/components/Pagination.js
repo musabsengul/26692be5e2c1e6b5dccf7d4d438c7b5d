@@ -18,7 +18,7 @@ const Pagination = ({productPerPage, totalProducts, paginate, currentPage}) => {
                 }
                 {pageNumbers.map((number, index) => (
                     <li onClick={() => paginate(number)} key={index}
-                        className={`page--number-${currentPage === number ? "active" : "passive"}`}>
+                        className={`page-number--${currentPage === number ? "active" : "passive"}`}>
                         {number}
                     </li>
                 ))}

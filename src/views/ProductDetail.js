@@ -33,9 +33,9 @@ const ProductDetail = () => {
                         <img src={product.image.src} style={{maxWidth: "70%"}} alt={product.title}/>
                     </div>
                     <div className="p-4 mt-12 lg:p-0 lg:mt-0 w-full">
-                        <div className="product--detail--title">{product.title}</div>
-                        <div className="product--detail--vendor">{product.vendor} </div>
-                        <div className="product--detail--vendor ">
+                        <div className="product-detail__title">{product.title}</div>
+                        <div className="product-detail__vendor">{product.vendor} </div>
+                        <div className="product-detail__vendor ">
                             {helpers.formatCurrency.format(product.variants[0].price)}
                         </div>
                         <div className="mt-12 space-x-1.5">

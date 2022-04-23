@@ -50,17 +50,17 @@ input:focus {
 }
 
 
-.product--detail--title {
+.product-detail__title {
     font-size: 26px;
     font-weight: bold;
 }
 
-.product--detail--vendor {
+.product-detail__vendor {
     font-size: 22px;
 
 }
 
-.product--detail--price {
+.product-detail__price {
     @apply text-green-500 mb-3.5;
     font-size: 30px;
     font-weight: bold;
@@ -72,9 +72,9 @@ input:focus {
 .variant--passive {
     @apply py-0.5 cursor-pointer px-1 border border-slate-300 rounded text-sm text-slate-500;
 }
-.page--number-active {
+.page-number--active {
     @apply text-slate-700 cursor-pointer bg-slate-700 text-white px-1.5 py-0.5;
 }
-.page--number-passive {
+.page-number--passive {
     @apply cursor-pointer py-0.5 px-1.5;
 }

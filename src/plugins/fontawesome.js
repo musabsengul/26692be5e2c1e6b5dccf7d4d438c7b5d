@@ -2,11 +2,13 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import {
     faSearch,
     faAngleLeft,
-    faAngleRight
+    faAngleRight,
+    faArrowLeft
 } from "@fortawesome/free-solid-svg-icons";
 
 library.add(
     faSearch,
     faAngleRight,
-    faAngleLeft
+    faAngleLeft,
+    faArrowLeft
 );

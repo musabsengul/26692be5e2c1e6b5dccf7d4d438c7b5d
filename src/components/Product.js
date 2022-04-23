@@ -1,5 +1,5 @@
 import React from "react";
-import {helpers} from "../class/helpers";
+import {helpers} from "../utils/helpers";
 import {useNavigate} from 'react-router-dom';
 
 const Product = ({item}) => {

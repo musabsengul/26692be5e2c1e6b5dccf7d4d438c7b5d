@@ -10,7 +10,7 @@ const Pagination = ({productPerPage, totalProducts, paginate, currentPage}) => {
     }
 
     return (
-        <div className="mr-4">
+        <div className="mr-8 py-8">
             <ul className="flex space-x-2 items-center justify-end font-bold text-slate-500 text-lg">
                 {currentPage !== 1 &&
                     <FontAwesomeIcon icon="angle-left" className="cursor-pointer"

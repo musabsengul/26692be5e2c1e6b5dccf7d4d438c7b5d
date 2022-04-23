@@ -5,11 +5,10 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 const SearchInput = ({onChange, loader}) => {
     const timer = useRef();
     const onSearch = (text) => {
-        loader.current.show()
+
         clearTimeout(timer.current)
         timer.current = setTimeout(() => {
             onChange(text)
-            loader.current.hide()
         }, 500);
 
     };

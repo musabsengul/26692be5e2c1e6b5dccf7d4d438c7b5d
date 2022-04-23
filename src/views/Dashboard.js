@@ -1,5 +1,5 @@
 import React, {useEffect, useRef, useState} from "react";
-import {constant} from "../class/constant";
+import {constant} from "../config/constant";
 import useGet from "../hook/useGet";
 import Pagination from "../components/Pagination";
 import SearchInput from "../components/SearchInput";
@@ -31,6 +31,7 @@ function Dashboard() {
     }, [])
 
     useEffect(() => {
+        loader.current.show()
         let list = products.filter((product) => {
             const q = textSearch
                 ? textSearch.toLowerCase()
@@ -48,6 +49,7 @@ function Dashboard() {
             setFilteredProducts(list)
             setCurrentProducts(list)
         }
+        loader.current.hide()
     }, [products, currentPage, textSearch])
 
 
@@ -58,13 +60,15 @@ function Dashboard() {
     return (
         <div className="h-full w-full relative">
             <Loader ref={loader}/>
-            <div className="flex flex-col  p-2 overflow-hidden">
-                <div className="flex justify-center items-center h-24 text-center mb-7">
-                    <SearchInput onChange={setTextSearch} loader={loader}/>
+            <div className="flex flex-col overflow-hidden">
+                <div className="w-full h-16 fixed bg-white shadow ">
+                    <div className="flex justify-center items-center text-center my-3">
+                        <SearchInput onChange={setTextSearch} loader={loader}/>
+                    </div>
                 </div>
                 {
                     currentProducts.length > 0
-                        ? <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-16 mx-auto">
+                        ? <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-16 mx-auto pt-24">
                             {
                                 currentProducts.map((item) => (
                                     <Product item={item} key={item.id}/>

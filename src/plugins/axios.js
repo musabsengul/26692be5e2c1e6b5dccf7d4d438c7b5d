@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {constant} from "../config/constant";
 
 
 export const $axios = axios.create();
@@ -6,7 +7,7 @@ export const $axios = axios.create();
 $axios.interceptors.request.use(
     (config) => {
         let headers = {
-            "X-Access-Token": "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",
+            "X-Access-Token": constant.API_KEY,
         };
         config.headers = headers;
         return config;

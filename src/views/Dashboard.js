@@ -63,7 +63,7 @@ function Dashboard() {
             <div className="flex flex-col overflow-hidden">
                 <div className="w-full h-16 fixed bg-white shadow ">
                     <div className="flex justify-center items-center text-center my-3">
-                        <SearchInput onChange={setTextSearch} loader={loader}/>
+                        <SearchInput onChange={setTextSearch}/>
                     </div>
                 </div>
                 {

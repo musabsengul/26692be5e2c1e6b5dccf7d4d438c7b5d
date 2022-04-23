@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 
 
-const SearchInput = ({onChange, loader}) => {
+const SearchInput = ({onChange}) => {
     const timer = useRef();
     const onSearch = (text) => {
 

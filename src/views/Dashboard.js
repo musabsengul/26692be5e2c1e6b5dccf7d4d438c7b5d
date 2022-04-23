@@ -1,13 +1,12 @@
-import React, {useEffect, useRef, useState} from "react";
-import {constant} from "../config/constant";
-import useGet from "../hook/useGet";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import Pagination from "../components/Pagination";
 import SearchInput from "../components/SearchInput";
 import Product from "../components/Product";
 import Loader from "../components/Loader";
+import {AppContext} from "../plugins/contexts";
 
 function Dashboard() {
-    const {data: products, loading} = useGet({url: constant.API_URL, responseSrc: "products"})
+    const {products, loading} = useContext(AppContext)
     const [filteredProducts, setFilteredProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
     const [currentProducts, setCurrentProducts] = useState([])
@@ -69,12 +68,9 @@ function Dashboard() {
                 {
                     currentProducts.length > 0
                         ? <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-16 mx-auto pt-24">
-                            {
-                                currentProducts.map((item) => (
-                                    <Product item={item} key={item.id}/>
-                                ))
-
-                            }
+                            {currentProducts.map((item) => (
+                                <Product item={item} key={item.id}/>
+                            ))}
                         </div>
                         : !loading &&
                         <div className="mt-40 w-full flex items-center justify-center">

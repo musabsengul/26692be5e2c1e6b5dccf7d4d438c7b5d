@@ -1,17 +1,11 @@
-import React, {useRef} from "react";
+import React from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-
+import {debounce} from "../utils/helpers";
 
 const SearchInput = ({onChange}) => {
-    const timer = useRef();
-    const onSearch = (text) => {
 
-        clearTimeout(timer.current)
-        timer.current = setTimeout(() => {
-            onChange(text)
-        }, 500);
+    const onSearch = debounce((text) => onChange(text))
 
-    };
     return (
         <div className="flex justify-between border border-slate-300 rounded-lg items-center w-96 px-2">
             <input placeholder="Search" onChange={(e) => onSearch(e.target.value)}
@@ -20,5 +14,4 @@ const SearchInput = ({onChange}) => {
         </div>
     )
 }
-
 export default SearchInput;

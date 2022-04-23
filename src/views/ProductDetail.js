@@ -1,24 +1,21 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useNavigate, useParams} from "react-router-dom";
 import {helpers} from "../utils/helpers";
-import $axios from "../plugins/axios";
-import {constant} from "../config/constant";
 import LoadingBlock from "../components/LoadingBlock";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {AppContext} from "../plugins/contexts";
 
 const ProductDetail = () => {
+    const {products} = useContext(AppContext)
     const navigate = useNavigate();
     const {id} = useParams();
     const [product, setProduct] = useState(null)
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        $axios(constant.API_URL)
-            .then((response) => {
-                setProduct(response.products.find((product) => product.id === Number(id)))
-            })
-            .finally(() => setLoading(false))
-    }, [id])
+        setProduct(products.find((product) => product.id === Number(id)))
+        setLoading(false)
+    }, [id,products])
 
     const goBack = () => {
         navigate("/")
@@ -53,7 +50,7 @@ const ProductDetail = () => {
                         <div className="mt-4" dangerouslySetInnerHTML={{__html: product.body_html}}/>
                         <div className="mt-12">
                             <button className="p-2 rounded bg-green-500 text-white">
-                                Sepete Ekle
+                                Add
                             </button>
                         </div>
                     </div>

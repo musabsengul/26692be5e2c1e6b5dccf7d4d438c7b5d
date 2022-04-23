@@ -5,7 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Product = ({item}) => {
     const navigate = useNavigate();
     return (
-        <div className="flex flex-col items-center p-2  cursor-pointer"
+        <div className="h-full flex flex-col justify-between items-center p-2  cursor-pointer"
              onClick={()=>navigate(`/product-detail/${item.id}`)}>
             <div
                 className="flex items-center justify-center">

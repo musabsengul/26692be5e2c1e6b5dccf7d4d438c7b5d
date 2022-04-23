@@ -47,3 +47,21 @@ input:focus {
     font-size: 30px;
     font-weight: bold;
 }
+
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    cursor:pointer;
+}
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(13deg,#cbd5e1 14%,#cbd5e1 14%);
+    border-radius: 1px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(13deg,#cbd5e1 14%,#cbd5e1 64%);
+}
+::-webkit-scrollbar-track {
+    background: #ffffff;
+    border-radius: 2px;
+    box-shadow: inset 7px 10px 12px #f0f0f0;
+}

@@ -4,7 +4,7 @@ import $axios from "../plugins/axios";
 
 export default ({url = "", responseSrc = null}) => {
     const [data, setData] = useState([])
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         if (url) {

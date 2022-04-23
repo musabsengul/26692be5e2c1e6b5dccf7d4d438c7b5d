@@ -25,7 +25,7 @@ const ProductDetail = () => {
         <div className="w-full h-full flex items-center justify-center">
             <LoadingBlock loading={loading}/>
             <div className="flex flex-col container h-full">
-                <div className="text-left my-12 text-2xl">
+                <div className="text-left my-2 md:my-12 text-2xl pl-2">
                     <FontAwesomeIcon icon="arrow-left" className="cursor-pointer" onClick={goBack}/>
                 </div>
                 <div className="flex flex-col w-full lg:flex-row mt-40 lg:mt-0 mx-auto items-center">

@@ -6,8 +6,6 @@ const SearchInput = ({onChange, loader}) => {
     const timer = useRef();
     const onSearch = (text) => {
         loader.current.show()
-        // setLoading(true)
-        // setTextValue(text)
         clearTimeout(timer.current)
         timer.current = setTimeout(() => {
             onChange(text)

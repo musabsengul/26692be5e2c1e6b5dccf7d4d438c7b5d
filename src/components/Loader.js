@@ -14,7 +14,7 @@ const Loader = forwardRef((props, ref) => {
         <div
             className="absolute left-0 top-0 z-50 w-full h-full flex items-center justify-center bg-white bg-opacity-75"
         >
-            <img src={LoadingSvg} className="h-4" alt/>
+            <img src={LoadingSvg} className="h-4" alt="loading"/>
         </div>
     )
 })

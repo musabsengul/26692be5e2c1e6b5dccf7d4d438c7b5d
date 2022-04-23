@@ -13,39 +13,13 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-#root {
-    @apply w-full h-full text-slate-700;
-}
-
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
 
-
-input {
-    border: 0;
-    outline: 0;
-}
-
-input:focus {
-    outline: none !important;
-}
-
-
-.item--header {
-    font-size: 26px;
-    font-weight: bold;
-}
-
-.item--vendor {
-    font-size: 22px;
-
-}
-
-.item--price {
-    font-size: 30px;
-    font-weight: bold;
+#root {
+    @apply w-full h-full text-slate-700;
 }
 
 ::-webkit-scrollbar {
@@ -64,4 +38,43 @@ input:focus {
     background: #ffffff;
     border-radius: 2px;
     box-shadow: inset 7px 10px 12px #f0f0f0;
+}
+
+input {
+    border: 0;
+    outline: 0;
+}
+
+input:focus {
+    outline: none !important;
+}
+
+
+.product--detail--title {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.product--detail--vendor {
+    font-size: 22px;
+
+}
+
+.product--detail--price {
+    @apply text-green-500 mb-3.5;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.variant--active {
+    @apply py-0.5 px-1 border border-slate-700 rounded text-sm text-slate-700 cursor-pointer;
+}
+.variant--passive {
+    @apply py-0.5 cursor-pointer px-1 border border-slate-300 rounded text-sm text-slate-500;
+}
+.page--number-active {
+    @apply text-slate-700 cursor-pointer bg-slate-700 text-white px-1.5 py-0.5;
+}
+.page--number-passive {
+    @apply cursor-pointer py-0.5 px-1.5;
 }

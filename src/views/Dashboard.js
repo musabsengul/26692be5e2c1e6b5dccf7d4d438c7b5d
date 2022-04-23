@@ -10,9 +10,9 @@ function Dashboard() {
     const {data: products, loading} = useGet({url: constant.API_URL, responseSrc: "products"})
     const [filteredProducts, setFilteredProducts] = useState([])
     const [currentPage, setCurrentPage] = useState(1)
-    const [productsPerPage, setProductsPerPage] = useState(10)
     const [currentProducts, setCurrentProducts] = useState([])
     const [textSearch, setTextSearch] = useState(null)
+    const productsPerPage = 10
     const loader = useRef()
 
     useEffect(() => {
@@ -23,10 +23,6 @@ function Dashboard() {
         }
     }, [loading])
 
-    const paginate = (number) => {
-        sessionStorage.setItem("currentPage", JSON.stringify(number))
-        setCurrentPage(number)
-    }
     useEffect(() => {
         let strCurrentPage = sessionStorage.getItem("currentPage")
         if (JSON.parse(strCurrentPage)) {
@@ -35,10 +31,6 @@ function Dashboard() {
     }, [])
 
     useEffect(() => {
-        filter()
-    }, [products, currentPage, textSearch])
-
-    const filter = () => {
         let list = products.filter((product) => {
             const q = textSearch
                 ? textSearch.toLowerCase()
@@ -56,9 +48,13 @@ function Dashboard() {
             setFilteredProducts(list)
             setCurrentProducts(list)
         }
+    }, [products, currentPage, textSearch])
 
+
+    const paginate = (number) => {
+        sessionStorage.setItem("currentPage", JSON.stringify(number))
+        setCurrentPage(number)
     }
-
     return (
         <div className="h-full w-full relative">
             <Loader ref={loader}/>
@@ -67,21 +63,19 @@ function Dashboard() {
                     <SearchInput onChange={setTextSearch} loader={loader}/>
                 </div>
                 {
-                    currentProducts.length > 0 ?
-                        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-16 mx-auto">
+                    currentProducts.length > 0
+                        ? <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-16 mx-auto">
                             {
                                 currentProducts.map((item) => (
-                                    <div className="flex items-center justify-center col-span-2 md:col-span-1"
-                                         key={item.id}>
-                                        <Product item={item}/>
-                                    </div>
+                                    <Product item={item} key={item.id}/>
                                 ))
 
                             }
                         </div>
-                        : !loading && <div className="mt-40 w-full flex items-center justify-center">
-                        No results could be found
-                    </div>
+                        : !loading &&
+                        <div className="mt-40 w-full flex items-center justify-center">
+                            No results could be found
+                        </div>
                 }
                 {
                     filteredProducts.length > 10 &&

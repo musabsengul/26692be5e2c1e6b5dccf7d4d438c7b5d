@@ -5,11 +5,11 @@ import { useNavigate } from 'react-router-dom';
 const Product = ({item}) => {
     const navigate = useNavigate();
     return (
-        <div className="flex flex-col items-center p-2 h-full h-120 w-100 cursor-pointer"
+        <div className="flex flex-col items-center p-2  cursor-pointer"
              onClick={()=>navigate(`/product-detail/${item.id}`)}>
             <div
-                className="p-4 border border-slate-300 h-100 w-100">
-                <img className="h-full w-full"  src={item.image.src}/>
+                className="flex items-center justify-center">
+                <img src={item.image.src} style={{maxWidth:"50%"}}/>
             </div>
             <div className="my-2 flex text-center flex-col">
                 <div className="text-lg font-bold">

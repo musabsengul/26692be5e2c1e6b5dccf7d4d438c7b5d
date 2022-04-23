@@ -31,3 +31,19 @@ input {
 input:focus {
     outline: none !important;
 }
+
+
+.item--header {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.item--vendor {
+    font-size: 22px;
+
+}
+
+.item--price {
+    font-size: 30px;
+    font-weight: bold;
+}
